@@ -1,0 +1,66 @@
+body{
+    font-family: "Open Sans";
+    background: rgb(37,190,212);
+    background: linear-gradient(0deg, rgba(37,190,212,1) 0%, rgba(39,144,159,1) 10%, rgba(40,107,117,1) 25%, rgba(42,74,79,1) 50%, rgba(43,45,46,1) 100%);
+    background-attachment: fixed;
+}
+body a{
+    text-decoration:none;
+}
+
+.dropdown-item:hover{
+    color: black !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.gallery img {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    cursor: pointer;
+}
+.date-highlight {
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: gray;
+    padding: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 1);
+}
+
+/* RESPONSIVE TABS */
+#list-tabs {
+    display: flex;
+}
+#list-select {
+    display: none;
+}
+@media (max-width: 1000px) {
+    #list-tabs {
+        display: none;
+    }
+    #list-select {
+        display: block;
+        width: 100%; 
+    }
+    #loginForm{
+        margin: 20px auto;
+    }
+}
+
+@media (min-width: 1000px) {
+    #loginForm{
+        position: absolute;top: 25vh; left:33vw;
+    }
+}

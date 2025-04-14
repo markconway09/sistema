@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Exclude static files (CSS, JS, images, etc.) from being rewritten
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Rewrite URLs like /page to /index.php?pag=page
+RewriteRule ^([^/]+)/?$ index.php?pag=$1 [L,QSA]
