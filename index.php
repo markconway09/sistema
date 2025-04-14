@@ -92,12 +92,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-light text-light" style="background-color:rgb(43,45,46);">
+    <nav class="navbar navbar-light" id="logo_bar">
         <a class="navbar-brand mx-auto" href="">
             <img class="rounded mx-auto" src="LOGO.png" alt="logo" height="60">
+            <span class="badge badge-pill bg-danger">2.3.1</span>
         </a>
         <?php if (isset($_SESSION["login"])) : ?>
-            <button class="btn position-relative text-light" style="right: 20px; background-color:#25BED4" data-bs-toggle="modal" data-bs-target="#messageModal">
+            <button class="btn position-relative text-light" style="right: 20px; background-color:#ef997c" data-bs-toggle="modal" data-bs-target="#messageModal">
                 <i class="bi bi-megaphone"></i>
                 <span id="announcementsPill" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                     0
@@ -114,33 +115,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     ?>
 
-    <nav class="container rounded text-light sticky-top p-3 mt-3" style="background-color:rgb(43,45,46);">
+    <nav class="container rounded text-light sticky-top p-3 mt-3" id="nav_bar">
         <div class="input-group d-flex">
             <div class="btn-group">
-                <button class="button w-25 btn btn-dark mx-1 text-light my-auto" style="border-radius:6px 0 0 6px" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="button w-25 btn mx-1 text-light my-auto" style="border-radius:6px 0 0 6px" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-person-fill"></i>
                     <span class="d-sm-inline-block d-none"><?php echo ucfirst($_SESSION["login"]); ?></span>
                 </button>
-                <ul class="dropdown-menu text-bg-dark">
+                <ul class="dropdown-menu">
                     <!-- ADMIN MENU -->
                     <?php if (isUser(["superadmin", "administrador", "jefetecnico", "director", "administrativo"])) { ?>
-                        <li><a class="dropdown-item text-light" href="recordatorios"><i class="bi bi-megaphone"></i></i> Recordatorios</a></li>
-                        <li><a class="dropdown-item text-light" href="entregas"><i class="bi bi-box-seam"></i> Entregas</a></li>
-                        <li><a class="dropdown-item text-light" href="historial"><i class="bi bi-clock-history"></i> Historial</a></li>
+                        <li><a class="dropdown-item" href="recordatorios"><i class="bi bi-megaphone"></i></i> Recordatorios</a></li>
+                        <li><a class="dropdown-item" href="entregas"><i class="bi bi-box-seam"></i> Entregas</a></li>
+                        <li><a class="dropdown-item" href="historial"><i class="bi bi-clock-history"></i> Historial</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item text-light" href="user-admin"><i class="bi bi-people"></i> Usuarios</a></li>
-                        <li><a class="dropdown-item text-light" href="proveedores"><i class="bi bi-person-raised-hand"></i> Proveedores</a></li>
-                        <li><a class="dropdown-item text-light" href="imageManager"><i class="bi bi-image"></i> Gestionar Fotos</a></li>
-                        <li><a class="dropdown-item text-light" href="errores"><i class="bi bi-exclamation-octagon"></i> Errores</a></li>
+                        <li><a class="dropdown-item" href="user-admin"><i class="bi bi-people"></i> Usuarios</a></li>
+                        <li><a class="dropdown-item" href="proveedores"><i class="bi bi-person-raised-hand"></i> Proveedores</a></li>
+                        <li><a class="dropdown-item" href="imageManager"><i class="bi bi-image"></i> Gestionar Fotos</a></li>
+                        <li><a class="dropdown-item" href="errores"><i class="bi bi-exclamation-octagon"></i> Errores</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item text-light" href="totalventas"><i class="bi bi-calculator"></i> Total Ventas</a></li>
-                        <li><a class="dropdown-item text-light" href="infoClientes"><i class="bi bi-person-up"></i> Exportar Clientes</a></li>
-                        <li><a class="dropdown-item text-light" href="infoOrdenes"><i class="bi bi-database-up"></i> Exportar Ordenes</a></li>
-                        <li><a class="dropdown-item text-light" href="gestionDispositivos"><i class="bi bi-phone"></i> Gestionar Dispositivos</a></li>
+                        <li><a class="dropdown-item" href="totalventas"><i class="bi bi-calculator"></i> Total Ventas</a></li>
+                        <li><a class="dropdown-item" href="infoClientes"><i class="bi bi-person-up"></i> Exportar Clientes</a></li>
+                        <li><a class="dropdown-item" href="infoOrdenes"><i class="bi bi-database-up"></i> Exportar Ordenes</a></li>
+                        <li><a class="dropdown-item" href="gestionDispositivos"><i class="bi bi-phone"></i> Gestionar Dispositivos</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -158,15 +159,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </ul>
             </div>
             <?php if (isNotUser(["tecnico", "repartidor"])) { ?>
-                <a href="." class="button btn btn-dark mx-1 my-auto flex-fill">
+                <a href="." class="button btn text-light mx-1 my-auto flex-fill">
                     <i class="bi bi-pencil-square"></i> <span class="d-sm-inline-block d-none">Formulario</span>
                 </a>
             <?php } ?>
-            <a href="list" class="button btn btn-dark mx-1 my-auto flex-fill">
+            <a href="list" class="button btn text-light mx-1 my-auto flex-fill">
                 <i class="bi bi-columns-gap"></i> <span class="d-sm-inline-block d-none">Lista</span>
             </a>
             <?php if (isUser(["repartidor"])) { ?>
-                <a href="entregas" class="button btn btn-dark mx-1 my-auto flex-fill">
+                <a href="entregas" class="button btn text-light mx-1 my-auto flex-fill">
                     <i class="bi bi-box-seam"></i> <span class="d-sm-inline-block d-none">Entregas</span>
                 </a>
             <?php } ?>
@@ -183,13 +184,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         ?>
     </div>
-
-    <!-- FOOTER -->
-    <ul class="nav nav-tabs mt-2 border-0">
-        <li class="mx-auto">
-            <span class="nav-link active text-bg-dark border-0">QuickTR <span class="badge badge-pill bg-danger">2.3.1</span></span>
-        </li>
-    </ul>
 
     <!-- Toast Container -->
     <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer"></div>

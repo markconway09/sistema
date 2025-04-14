@@ -1,17 +1,17 @@
 <?php
 // LOGICA PARA DECIDIR QUÉ FORMULARIO MOSTRAR
-    $title = '<h1 class="display-5 text-light text-center mb-4">Cliente</h1>';
+    $title = '<h1 class="display-5 text-center mb-4">Cliente</h1>';
     $hidden = '';
     if(isset($_GET["id"])) $backbtn = '<a href="list&id='. $_GET["id"] .'" class="btn btn-secondary">Volver</a>';
 
     if(isset($_GET["form"])){
         if($_GET["form"] == "garantia"){
-            $title = $backbtn.'<h1 class="display-5 text-light text-center mb-4">Garantía para # '. $_GET["id"] .'</h1>';
+            $title = $backbtn.'<h1 class="display-5 text-center mb-4">Garantía para # '. $_GET["id"] .'</h1>';
             $hidden = '<input type="hidden" name="garantia" value="'. $_GET["id"] .'">';
         }
     }
 
-    $before = ' <form action="list" method="POST" class="form-control p-4 bg-dark border-secondary" enctype="multipart/form-data">'.$title;
+    $before = ' <form action="list" method="POST" class="form-control p-4" enctype="multipart/form-data">'.$title;
     $after = '      <div class="row">
                         <div class="col-12">
                             '.$hidden.'
@@ -35,9 +35,9 @@
     echo $before;
     include 'views/registro_cliente.php';
 ?>
-    <hr class="text-light">
+    <hr>
 <?php
-    echo '<h1 class="display-5 text-light text-center mb-4">Servicio</h1>';
+    echo '<h1 class="display-5 text-center mb-4">Servicio</h1>';
     include 'views/registro_servicio.php';
     echo $after;
 ?>

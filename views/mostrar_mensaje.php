@@ -1,8 +1,8 @@
 <div class="modal" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content text-bg-dark">
+        <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="messageModalLabel">Comunicaciones <i class="bi bi-megaphone" style="color: #25BED4;"></i></h1>
+                <h1 class="modal-title fs-5" id="messageModalLabel">Comunicaciones <i class="bi bi-megaphone" style="color: #ef997c;"></i></h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

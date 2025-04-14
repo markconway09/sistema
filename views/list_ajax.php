@@ -32,7 +32,7 @@
             </div>
             <!-- TABS -->
             <div class="row">
-                <ul class="nav nav-tabs bg-dark mt-2" id="list-tabs">
+                <ul class="nav nav-tabs text-bg-light mt-2" id="list-tabs">
                     <?php
                     $filters = [
                         "0" => "Diagnóstico",
@@ -54,12 +54,12 @@
                         ""
                     ];
                     // Default case for "Todo"
-                    echo '<li class="nav-item"><button data-filter="todo" class="nav-link ' . (!isset($_GET["filter"]) ? 'active' : 'text-light') . '">Todo</button></li>';
+                    echo '<li class="nav-item"><button data-filter="todo" class="nav-link text-dark ' . (!isset($_GET["filter"]) ? 'active' : '') . '">Todo</button></li>';
 
                     // Iterate through filters
                     foreach ($filters as $key => $label) {
-                        $activeClass = (isset($_GET["filter"]) && $_GET["filter"] == $key) ? 'active' : 'text-light';
-                        echo '<li class="nav-item"><button data-filter="' . $key . '" class="nav-link ' . $activeClass . '"
+                        $activeClass = (isset($_GET["filter"]) && $_GET["filter"] == $key) ? 'active' : '';
+                        echo '<li class="nav-item"><button data-filter="' . $key . '" class="nav-link text-dark ' . $activeClass . '"
                                         data-bs-toggle="tooltip" data-bs-title="' . $tooltip[$key] . '">' . $label . ' <span id="badge-' . $key . '" class="badge text-bg-secondary">0</span></button></li>';
                     }
                     ?>
@@ -241,7 +241,7 @@
             // Create individual card
             const card = document.createElement('div');
             card.className = "card text-bg-light";
-            card.style = "padding:0; border: none;";
+            card.style = "padding:0;border:none;box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);";
             let estado = item.garantia == 0 ? pasos[item.estado] : "<i class='bi bi-file-text'></i> <a style='text-decoration:none;color:#FFA' href='list&id=" + item.garantia + "'>GARANTÍA <i class='bi bi-arrow-right-short'></i></a>";
             let desc = item.desc || "(No hay información)";
             let nombreDispositivo = item.nombre_dispositivo || "(No hay información)";

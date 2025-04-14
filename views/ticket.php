@@ -11,7 +11,7 @@ else $ticket = $db->fetchId($id);
 
 <!--  -->
 <!-- {START} MENU OPCIONES -->
-<div class="ticketMenu input-group sticky-top mt-3 p-2 bg-dark d-flex" style="top: 70px; z-index: 1;">
+<div class="input-group sticky-top mt-3 p-2 bg-light d-flex rounded" style="top: 70px; z-index: 1;">
     <a href="list" class="btn btn-secondary">
         <i class="bi bi-arrow-left"></i> <span class="d-none d-sm-inline">Volver</span>
     </a>
@@ -126,12 +126,12 @@ echo '
 // Close the input group
 echo '</div>';
 ?>
-<?php if ((($_SESSION["login"] == "admin" || $_SESSION["login"] == "dependiente")) && $ticket->estado != 4) { ?>
+<?php if ((($_SESSION["login"] == "superadmin" || $_SESSION["login"] == "dependiente")) && $ticket->estado != 4) { ?>
     <!-- BOTON MODAL COBRAR/CERRAR TICKET -->
     <button data-bs-toggle="modal" data-bs-target="#cobrarModal" class="mx-auto cssbuttons-io-button bg-secondary">Entregado/Cobrar<div class="icon"><i class="bi bi-cash text-dark"></i></div></button>
 <?php } ?>
 
-<?php if ((($_SESSION["login"] == "admin" || $_SESSION["login"] == "dependiente")) && $ticket->estado == 3) { ?>
+<?php if ((($_SESSION["login"] == "superadmin" || $_SESSION["login"] == "dependiente")) && $ticket->estado == 3) { ?>
 <div class="container mt-4">
     <div class="row fs-4">
         <?php if($ticket->avisos < 4) { ?>
@@ -250,7 +250,7 @@ echo '</div>';
     <div class="row mt-4 d-none" id="guardarCambiosBtn">
         <div class="col-12 text-center">
             <input type="hidden" name="id" value="<?php echo $ticket->id; ?>">
-            <input type="submit" name="guardarCliente" class="btn btn-primary" value="Guardar Cambios">
+            <input type="submit" name="guardarCliente" class="fileButton mx-auto" value="Guardar Cambios">
         </div>
     </div>
 
@@ -276,7 +276,7 @@ echo '</div>';
             <div class="row mt-4 d-none" id="guardarPagoBtn">
                 <div class="col-4 text-center">
                     <input type="hidden" name="id" value="<?php echo $ticket->id; ?>">
-                    <input type="submit" name="guardarPago" class="btn btn-primary" value="Guardar Cambios">
+                    <input type="submit" name="guardarPago" class="fileButton" value="Guardar Cambios">
                 </div>
             </div>
         </form>
@@ -393,7 +393,7 @@ if($ticket->partes) {
                     <td style='background:" . $colores[$row["estado"]] . "'>
                     <form style='display:inline-block' action='' method='post'>
                         <input type='hidden' name='id' value='".$row["id"]."'>
-                        <button type='submit' class='btn btn-primary' name='pedirInsumo'>Pedir</button>
+                        <button type='submit' class='fileButton' name='pedirInsumo'>Pedir</button>
                     </form>
                     </td>";
                 }
@@ -444,7 +444,7 @@ if($ticket->partes) {
         <div class="row">
             <div class="col-12 text-center">
                 <input type="hidden" name="id" value="<?php echo $ticket->id; ?>">
-                <input id="submitPrecio" type="submit" disabled name="guardarPrecio" class="btn btn-primary" value="Guardar Precio">
+                <input id="submitPrecio" type="submit" disabled name="guardarPrecio" class="fileButton mx-auto" value="Guardar Precio">
             </div>
         </div>
     </form>
@@ -678,7 +678,7 @@ if($ticket->partes) {
                         </div>
                     <?php endif; ?>
                     <div class="row">
-                        <input type="submit" name="editar_insumo" class="btn btn-primary col-4 mx-auto" value="Guardar Cambios">
+                        <input type="submit" name="editar_insumo" class="fileButton col-4 mx-auto" value="Guardar Cambios">
                     </div>
                 </form>
             </div>
